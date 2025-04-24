@@ -163,8 +163,897 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1173604549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173604551}
+  - component: {fileID: 1173604550}
+  m_Layer: 0
+  m_Name: Configs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1173604550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173604549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4063d244fa9ccd04baa6a35d9d8271c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameSpeed: 1
+  baseStatus:
+    HP: 100
+    O2: 100
+    Power: 1
+    Speed: 1
+    Defense: 1
+  equipmentConfigs:
+  - name: Helmet
+    type: 0
+    equipmentItems:
+    - name: H0
+      id: 0
+      thumbnailIndex: 0
+      spriteIndex: 0
+      addHp: 0
+      addO2: 0
+      addPower: 0
+      addSpeed: 0
+      addDefense: 0
+    - name: H1
+      id: 1
+      thumbnailIndex: 1
+      spriteIndex: 1
+      addHp: 1
+      addO2: 1
+      addPower: 0
+      addSpeed: 0
+      addDefense: 1
+    - name: H2
+      id: 2
+      thumbnailIndex: 2
+      spriteIndex: 2
+      addHp: 10
+      addO2: 10
+      addPower: 0
+      addSpeed: 0
+      addDefense: 10
+  - name: Drill
+    type: 1
+    equipmentItems:
+    - name: D0
+      id: 0
+      thumbnailIndex: 0
+      spriteIndex: 0
+      addHp: 0
+      addO2: 0
+      addPower: 0
+      addSpeed: 0
+      addDefense: 0
+    - name: D1
+      id: 1
+      thumbnailIndex: 1
+      spriteIndex: 1
+      addHp: 0
+      addO2: 0
+      addPower: 1
+      addSpeed: 0
+      addDefense: 0
+    - name: D2
+      id: 2
+      thumbnailIndex: 2
+      spriteIndex: 2
+      addHp: 0
+      addO2: 0
+      addPower: 10
+      addSpeed: 0
+      addDefense: 0
+  - name: Boots
+    type: 2
+    equipmentItems:
+    - name: B0
+      id: 0
+      thumbnailIndex: 0
+      spriteIndex: 0
+      addHp: 0
+      addO2: 0
+      addPower: 0
+      addSpeed: 0
+      addDefense: 0
+    - name: B1
+      id: 1
+      thumbnailIndex: 1
+      spriteIndex: 1
+      addHp: 0
+      addO2: 0
+      addPower: 0
+      addSpeed: 1
+      addDefense: 0
+    - name: B2
+      id: 2
+      thumbnailIndex: 2
+      spriteIndex: 2
+      addHp: 0
+      addO2: 0
+      addPower: 0
+      addSpeed: 10
+      addDefense: 0
+  productConfigs:
+  - name: First Aid Kit
+    id: 0
+    desc: Restore 10 HP
+    cost: 0
+    order: 0
+    thumbnailIndex: 0
+    itemId: 0
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: First Aid Kit2
+    id: 0
+    desc: Restore 50 HP
+    cost: 0
+    order: 1
+    thumbnailIndex: 1
+    itemId: 1
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: O2 Tank
+    id: 2
+    desc: Restore 50 O2
+    cost: 0
+    order: 2
+    thumbnailIndex: 2
+    itemId: 2
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: O2 Tank (L)
+    id: 3
+    desc: Restore 100 O2
+    cost: 0
+    order: 3
+    thumbnailIndex: 3
+    itemId: 3
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: Boom
+    id: 4
+    desc: Damage to Monster
+    cost: 0
+    order: 4
+    thumbnailIndex: 4
+    itemId: 4
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: Boom (L)
+    id: 5
+    desc: Large Damage to Monster
+    cost: 0
+    order: 5
+    thumbnailIndex: 5
+    itemId: 5
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: TNT
+    id: 5
+    desc: Destroy Below Tile
+    cost: 0
+    order: 6
+    thumbnailIndex: 6
+    itemId: 6
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: Boss Room Key
+    id: 7
+    desc: Destroy Below Tile
+    cost: 0
+    order: 7
+    thumbnailIndex: 7
+    itemId: 7
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: H1
+    id: 8
+    desc: Helmet 1
+    cost: 0
+    order: 8
+    thumbnailIndex: 8
+    itemId: 8
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: D1
+    id: 9
+    desc: Drill 1
+    cost: 0
+    order: 9
+    thumbnailIndex: 9
+    itemId: 9
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  - name: B1
+    id: 10
+    desc: Boots 1
+    cost: 0
+    order: 10
+    thumbnailIndex: 10
+    itemId: 10
+    itemCount: 1
+    purchaseLimitPerStage: 0
+    unlockedStage: 0
+  itemConfigs:
+  - name: First Aid Kit
+    id: 0
+    thumbnailIndex: 0
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 1
+    consumptionEffect:
+      restoreHp: 10
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: First Aid Kit2
+    id: 1
+    thumbnailIndex: 1
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 1
+    consumptionEffect:
+      restoreHp: 50
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: O2 Tank
+    id: 2
+    thumbnailIndex: 2
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 1
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 50
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: O2 Tank (L)
+    id: 3
+    thumbnailIndex: 3
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 1
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 100
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: Boom
+    id: 4
+    thumbnailIndex: 4
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 1
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 1
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: Boom (L)
+    id: 5
+    thumbnailIndex: 5
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 1
+      spawnObjcetId: 1
+      spawnObjcetPosition: 0
+  - name: TNT
+    id: 6
+    thumbnailIndex: 6
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 1
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 1
+      spawnObjcetId: 2
+      spawnObjcetPosition: 1
+  - name: Boss Room Key
+    id: 7
+    thumbnailIndex: 7
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 1
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: H1
+    id: 7
+    thumbnailIndex: 7
+    stackableCount: 1
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 1
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: D1
+    id: 9
+    thumbnailIndex: 9
+    stackableCount: 1
+    equipmentable: 1
+    equipmentType: 1
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: B1
+    id: 10
+    thumbnailIndex: 10
+    stackableCount: 1
+    equipmentable: 1
+    equipmentType: 2
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 0
+    price: 0
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: Gem0
+    id: 11
+    thumbnailIndex: 11
+    stackableCount: 5
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 1
+    price: 10
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: Gem1
+    id: 12
+    thumbnailIndex: 12
+    stackableCount: 3
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 1
+    price: 100
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  - name: Gem2
+    id: 12
+    thumbnailIndex: 12
+    stackableCount: 2
+    equipmentable: 0
+    equipmentType: 0
+    equipmentId: 0
+    isQuestItem: 0
+    questId: 0
+    sellable: 1
+    price: 1000
+    consumable: 0
+    consumptionEffect:
+      restoreHp: 0
+      restoreO2: 0
+      isSpawnObject: 0
+      spawnObjcetId: 0
+      spawnObjcetPosition: 0
+  dropItemConfigs: []
+  monsterConfigs: []
+--- !u!4 &1173604551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173604549}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1523029601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523029604}
+  - component: {fileID: 1523029603}
+  - component: {fileID: 1523029602}
+  m_Layer: 0
+  m_Name: SFX Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1523029602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523029601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8ce618159e950429e92157a1f0f1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxs: []
+--- !u!82 &1523029603
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523029601}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1523029604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523029601}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1550940077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550940079}
+  - component: {fileID: 1550940078}
+  m_Layer: 0
+  m_Name: User
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1550940078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550940077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851d22084d51e8040905c94a714c7380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxs: []
+--- !u!4 &1550940079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550940077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1871358140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1871358142}
+  - component: {fileID: 1871358141}
+  m_Layer: 0
+  m_Name: InGameEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1871358141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871358140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308f5ff995b40b945b92630998859259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxs: []
+--- !u!4 &1871358142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871358140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1952634552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952634555}
+  - component: {fileID: 1952634554}
+  - component: {fileID: 1952634553}
+  m_Layer: 0
+  m_Name: 'BGM Manager     '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1952634553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952634552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2686e6f76313cbe48a710160f4f25106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgms: []
+--- !u!82 &1952634554
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952634552}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1952634555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952634552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 102266096}
+  - {fileID: 1871358142}
+  - {fileID: 1952634555}
+  - {fileID: 1523029604}
+  - {fileID: 1173604551}
+  - {fileID: 1550940079}
