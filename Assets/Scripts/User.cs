@@ -36,14 +36,50 @@ public class User : MonoBehaviour
     public EquipmentItem EquipSlot1 { get; private set; } // type 1
     public EquipmentItem EquipSlot2 { get; private set; } // type 2
 
+    [SerializeField] private InGameEventManager inGameEventManager;
+
+    private void OnEnable()
+    {
+        if (inGameEventManager == null)
+        {
+            inGameEventManager = InGameEventManager.Instance;
+            if (inGameEventManager == null)
+            {
+                throw new Exception("Ingamemanger is missing");
+            }
+        }
+    }
+
+    public void AddScore(int score)
+    {
+        Score += score;
+        inGameEventManager.OnScoreChangeEvent.Invoke(Score);
+    }
+
+    public void EarnMoney(int amount)
+    {
+        Money += amount;
+        inGameEventManager.OnScoreChangeEvent.Invoke(Money);
+    }
+
+    public bool SpendMoney(int amount)
+    {
+        if (Money < amount)
+        {
+            return false;
+        }
+        Money -= amount;
+        inGameEventManager.OnScoreChangeEvent.Invoke(Money);
+        return true;
+    }
 }
 
-public class HeroStatus
+public class PlayerStatus
 {
     private Status currentStatus = new();
     public int CurrentDepth { get; private set; }
 
-    public HeroStatus(Status initStatus)
+    public PlayerStatus(Status initStatus)
     {
         currentStatus.HP = initStatus.HP;
         currentStatus.O2 = initStatus.O2;
@@ -65,7 +101,7 @@ public class Inventory
 
 public struct InventorySlot
 {
-    public Item ItemId;
+    public Item ItemConfig;
     public int Count;
     public bool IsSettedShortCut;
     public string ShortCutKey;

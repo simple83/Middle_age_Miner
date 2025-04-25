@@ -933,6 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851d22084d51e8040905c94a714c7380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inGameEventManager: {fileID: 1871358141}
 --- !u!4 &1550940079
 Transform:
   m_ObjectHideFlags: 0
@@ -977,6 +978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308f5ff995b40b945b92630998859259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScoreChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1871358142
 Transform:
   m_ObjectHideFlags: 0

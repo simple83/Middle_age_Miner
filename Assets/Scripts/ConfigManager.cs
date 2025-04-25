@@ -7,7 +7,7 @@ public class ConfigManager : MonoBehaviour
     public static ConfigManager Instance => _instance;
 
     public float GameSpeed = 1.0f;
-    
+    public int BaseInventorySlotCount = 15;
     [SerializeField] private Status baseStatus;
     [SerializeField] private Equipment[] equipmentConfigs;
     [SerializeField] private Product[] productConfigs;
