@@ -9,6 +9,7 @@ public class InGameEventManager : MonoBehaviour
 
     public UnityEvent<int> OnScoreChangeEvent = new();
     public UnityEvent<int> OnMoneyChangeEvent = new();
+    public UnityEvent OpenInventoryEvent = new();
 
     private void Awake()
     {

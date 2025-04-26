@@ -89,20 +89,3 @@ public class PlayerStatus
     }
 }
 
-// 요놈은 UI에 붙여 버리자.
-public class Inventory
-{
-    private InventorySlot[] slots = null;
-    public Inventory(int slotCount)
-    {
-        slots = new InventorySlot[slotCount];
-    }
-}
-
-public struct InventorySlot
-{
-    public Item ItemConfig;
-    public int Count;
-    public bool IsSettedShortCut;
-    public string ShortCutKey;
-}

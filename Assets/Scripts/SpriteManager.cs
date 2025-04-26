@@ -32,4 +32,17 @@ public class SpriteManager : MonoBehaviour
             Destroy(this);
         }
     }
+
+    public Sprite GetItemThumbnail(int index)
+    {
+        if (index < itemThumbnails.Length)
+        {
+            return itemThumbnails[index];
+        }
+        else
+        {
+            Debug.LogWarning("index over item thumbnail list length so retrun null!");
+            return null;
+        }
+    }
 }
