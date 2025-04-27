@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayScene.unity
     guid: eb50037d6a1783b488ae384adc091f67
   - enabled: 1
-    path: Assets/Scenes/UI/UIPlayScene.unity
+    path: Assets/Scenes/UIPlayScene.unity
     guid: 7da0a8a6c99364941a36f98cc7530425
   - enabled: 1
     path: Assets/Scenes/StaticScene.unity

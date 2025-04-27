@@ -37,6 +37,23 @@ public class ConfigManager : MonoBehaviour
             Destroy(this);
         }
     }
+
+    public Item[] GetAllItemConfigs()
+    {
+        return itemConfigs;
+    }
+
+    public Item GetItemConfig(int id)
+    {
+        for (int i =0; i < itemConfigs.Length; i++)
+        {
+            if (itemConfigs[i].id == id)
+            {
+                return itemConfigs[i];
+            }
+        }
+        return new Item();
+    }
 }
 
 [Serializable]

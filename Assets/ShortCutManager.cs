@@ -35,6 +35,7 @@ public class ShortCutManager : MonoBehaviour
 
     void ShowInventory()
     {
+        Debug.Log($"I key down");
         if (inGameEventManager)
         {
             inGameEventManager.OpenInventoryEvent.Invoke();
