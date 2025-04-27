@@ -90,4 +90,9 @@ public class ItemAddTest : MonoBehaviour
             }
         }
     }
+
+    public void OpenInventory()
+    {
+        InGameEventManager.Instance.OpenInventoryEvent.Invoke();
+    }
 }

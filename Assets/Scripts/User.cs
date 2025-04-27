@@ -72,6 +72,12 @@ public class User : MonoBehaviour
         inGameEventManager.OnScoreChangeEvent.Invoke(Money);
         return true;
     }
+
+    public void SetPurchaseInventorySlotCount(int slotCount)
+    {
+        PurchasedInventroySlotCount = slotCount;
+        inGameEventManager.OnPurchaseInventoryCountChangeEvent.Invoke();
+    }
 }
 
 public class PlayerStatus

@@ -9,6 +9,7 @@ public class InGameEventManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent<int> OnScoreChangeEvent = new();
     [HideInInspector] public UnityEvent<int> OnMoneyChangeEvent = new();
+    [HideInInspector] public UnityEvent OnPurchaseInventoryCountChangeEvent = new();
     [HideInInspector] public UnityEvent OpenInventoryEvent = new();
     [HideInInspector] public UnityEvent<Item, int, GameObject> OnGetItemFromObjectEvent = new();
     [HideInInspector] public UnityEvent<Item, int> OnUseInventoryItemEvent = new();

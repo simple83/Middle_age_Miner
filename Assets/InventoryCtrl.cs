@@ -14,26 +14,6 @@ public class InventoryCtrl : MonoBehaviour
 
     private void Awake()
     {
-        InitalizeInventory();
-    }
-
-    private void OnDestroy()
-    {
-        if (inGameEventManager != null)
-        {
-            inGameEventManager.OpenInventoryEvent.RemoveListener(ShowInventory);
-            inGameEventManager.OnGetItemFromObjectEvent.RemoveListener(OnGetItemFromObject);
-            inGameEventManager.OnUseInventoryItemEvent.RemoveListener(OnSpendItem);
-        }
-    }
-
-    private void ShowInventory()
-    {
-        gameObject.SetActive(true);
-    }
-
-    private void InitalizeInventory(List<InventorySlot> loadedData = null)
-    {
         if (!user)
         {
             user = User.Instance;
@@ -59,7 +39,30 @@ public class InventoryCtrl : MonoBehaviour
         inGameEventManager.OpenInventoryEvent.AddListener(ShowInventory);
         inGameEventManager.OnGetItemFromObjectEvent.AddListener(OnGetItemFromObject);
         inGameEventManager.OnUseInventoryItemEvent.AddListener(OnSpendItem);
+        inGameEventManager.OnPurchaseInventoryCountChangeEvent.AddListener(UpdateSlotLockedState);
         gameObject.SetActive(false);
+        
+        InitalizeInventory();
+    }
+
+    private void OnDestroy()
+    {
+        if (inGameEventManager != null)
+        {
+            inGameEventManager.OpenInventoryEvent.RemoveListener(ShowInventory);
+            inGameEventManager.OnGetItemFromObjectEvent.RemoveListener(OnGetItemFromObject);
+            inGameEventManager.OnUseInventoryItemEvent.RemoveListener(OnSpendItem);
+            inGameEventManager.OnPurchaseInventoryCountChangeEvent.RemoveListener(UpdateSlotLockedState);
+        }
+    }
+
+    private void ShowInventory()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void InitalizeInventory(List<InventorySlot> loadedData = null)
+    {
         if (loadedData != null)
         {
             inventorySlots = loadedData;
