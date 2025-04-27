@@ -41,7 +41,7 @@ public class InventorySlotCtrl : MonoBehaviour
             {
                 itemCountText.text = slotData.Count.ToString();
             }
-            if (false && itemsImage)
+            if (itemsImage)
             {
                 itemsImage.sprite = SpriteManager.Instance.GetItemThumbnail(slotData.ItemConfig.thumbnailIndex);
             }

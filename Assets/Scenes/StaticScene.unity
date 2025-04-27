@@ -193,7 +193,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: []
-  itemThumbnails: []
+  itemThumbnails:
+  - {fileID: 6391913276300367363, guid: 814a91b425bd6ed448ef75611cb9559e, type: 3}
+  - {fileID: -7383082963855431121, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: -3688276087891296997, guid: 814a91b425bd6ed448ef75611cb9559e, type: 3}
+  - {fileID: -5165517309007609429, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: 72738243059495239, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: 3831800117441699733, guid: 814a91b425bd6ed448ef75611cb9559e, type: 3}
+  - {fileID: 2044172676589444137, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: -8491735141415579610, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: -6674003990685039139, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: 6141492459832837283, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: 8614850787994322968, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: -4429700332220786064, guid: 814a91b425bd6ed448ef75611cb9559e, type: 3}
+  - {fileID: -927467039047340118, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
+  - {fileID: -784423204552622594, guid: 16a93fcb573141b4ab86ae6d7152c610, type: 3}
 --- !u!4 &414265978
 Transform:
   m_ObjectHideFlags: 0
@@ -1030,7 +1044,16 @@ MonoBehaviour:
   OnMoneyChangeEvent:
     m_PersistentCalls:
       m_Calls: []
+  OnPurchaseInventoryCountChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OpenInventoryEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGetItemFromObjectEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUseInventoryItemEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1871358142

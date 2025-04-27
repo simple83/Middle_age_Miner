@@ -126,7 +126,7 @@ public class InventoryCtrl : MonoBehaviour
                     newSlot.ItemConfig = item;
                     if (oldSlot.Count + remainder <= stackableCount) // 모두 저장 가능 한 경우,
                     {
-                        newSlot.Count = remainder;
+                        newSlot.Count = oldSlot.Count + remainder;
                         remainder = 0;
                     }
                     else if (oldSlot.Count < stackableCount) //일부 저장 되는 경우,
