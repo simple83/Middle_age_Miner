@@ -37,6 +37,7 @@ public class InventoryCtrl : MonoBehaviour
             throw new Exception("ingamemanager is missing");
         }
         inGameEventManager.OpenInventoryEvent.AddListener(ShowInventory);
+        inGameEventManager.CloseInventoryEvent.AddListener(HideInventory);
         inGameEventManager.OnGetItemFromObjectEvent.AddListener(OnGetItemFromObject);
         inGameEventManager.OnUseInventoryItemEvent.AddListener(OnSpendItem);
         inGameEventManager.OnPurchaseInventoryCountChangeEvent.AddListener(UpdateSlotLockedState);
@@ -50,16 +51,15 @@ public class InventoryCtrl : MonoBehaviour
         if (inGameEventManager != null)
         {
             inGameEventManager.OpenInventoryEvent.RemoveListener(ShowInventory);
+            inGameEventManager.CloseInventoryEvent.RemoveListener(HideInventory);
             inGameEventManager.OnGetItemFromObjectEvent.RemoveListener(OnGetItemFromObject);
             inGameEventManager.OnUseInventoryItemEvent.RemoveListener(OnSpendItem);
             inGameEventManager.OnPurchaseInventoryCountChangeEvent.RemoveListener(UpdateSlotLockedState);
         }
     }
 
-    private void ShowInventory()
-    {
-        gameObject.SetActive(true);
-    }
+    private void ShowInventory() => gameObject.SetActive(true);
+    private void HideInventory() => gameObject.SetActive(false);
 
     private void InitalizeInventory(List<InventorySlot> loadedData = null)
     {
@@ -110,7 +110,13 @@ public class InventoryCtrl : MonoBehaviour
         }
     } 
 
-    public bool TryPushItem(Item item, int amount)
+    public bool TryPushItem(Product product)
+    {
+        Item item = ConfigManager.Instance.GetItemConfig(product.itemId);
+        return TryPushItem(item, product.itemCount);
+    }
+
+    private bool TryPushItem(Item item, int amount)
     {
         List<InventorySlot> newSlots = new();
         int remainder = amount;

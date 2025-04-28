@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class ShortCutManager : MonoBehaviour
 {
-    private KeyCode[] ShortCutKeys = { KeyCode.I, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G };
+    private KeyCode[] ShortCutKeys = { KeyCode.I, KeyCode.Q, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.G };
     [SerializeField] InGameEventManager inGameEventManager;
+
+    private bool isInventoryOpened = false;
+    private bool isShopOpened = false;
 
     void Update()
     {
@@ -14,9 +17,18 @@ public class ShortCutManager : MonoBehaviour
                 switch (code)
                 {
                     case KeyCode.I:
-                        ShowInventory();
+                        Debug.Log($"I key down");
+                        OpenInventory();
+                        break;
+                    case KeyCode.Q:
+                        Debug.Log($"Q key down");
+                        CloseInventory();
+                        CloseShop();
                         break;
                     case KeyCode.A:
+                        SellAllMinerals();
+                        UseRegisteredItem(code);
+                        break;
                     case KeyCode.S:
                     case KeyCode.D:
                     case KeyCode.F:
@@ -28,14 +40,36 @@ public class ShortCutManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (inGameEventManager != null)
+        {
+            inGameEventManager.OpenShopEvent.AddListener(OnShopOpened);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (inGameEventManager != null)
+        {
+            inGameEventManager.OpenShopEvent.RemoveListener(OnShopOpened);
+        }
+    }
+
     private void UseRegisteredItem(KeyCode code)
     {
+        if (isInventoryOpened || isShopOpened) return; // 인벤토리가 열려 있거나 상점이 열려 있을 때는 아이템을 사용하지 않음
+        // 필요 시 지상에 있을 때도 사용하지 않는 걸로 변경
         Debug.Log($"{code} key down");
     }
 
-    void ShowInventory()
+    private void OnShopOpened()
     {
-        Debug.Log($"I key down");
+        isShopOpened = true;
+    }
+
+    private void OpenInventory()
+    {
         if (inGameEventManager)
         {
             inGameEventManager.OpenInventoryEvent.Invoke();
@@ -45,6 +79,55 @@ public class ShortCutManager : MonoBehaviour
             if (InGameEventManager.Instance)
             {
                 InGameEventManager.Instance.OpenInventoryEvent.Invoke();
+            }
+        }
+        isInventoryOpened = true;
+    }
+
+    private void CloseInventory()
+    {
+        if (!isInventoryOpened) return;
+        if (inGameEventManager)
+        {
+            inGameEventManager.CloseInventoryEvent.Invoke();
+        }
+        else
+        {
+            if (InGameEventManager.Instance)
+            {
+                InGameEventManager.Instance.CloseInventoryEvent.Invoke();
+            }
+        }
+    }
+
+    private void CloseShop()
+    {
+        if (!isShopOpened) return;
+        if (inGameEventManager)
+        {
+            inGameEventManager.CloseShopEvent.Invoke();
+        }
+        else
+        {
+            if (InGameEventManager.Instance)
+            {
+                InGameEventManager.Instance.CloseShopEvent.Invoke();
+            }
+        }
+    }
+
+    private void SellAllMinerals()
+    {
+        if (!isShopOpened) return;
+        if (inGameEventManager)
+        {
+            inGameEventManager.CloseShopEvent.Invoke();
+        }
+        else
+        {
+            if (InGameEventManager.Instance)
+            {
+                InGameEventManager.Instance.CloseShopEvent.Invoke();
             }
         }
     }

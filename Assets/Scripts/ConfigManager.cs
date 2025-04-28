@@ -54,6 +54,8 @@ public class ConfigManager : MonoBehaviour
         }
         return new Item();
     }
+
+    public Product[] GetProductConfigs() => productConfigs;
 }
 
 [Serializable]
