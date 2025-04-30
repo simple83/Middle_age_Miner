@@ -11,6 +11,7 @@ public class InventoryCtrl : MonoBehaviour
     private int unlockedSlotCount => baseUnlockedSlotCount + user.PurchasedInventroySlotCount;
     private List<InventorySlot> inventorySlots = new();
     [SerializeField] private InventorySlotCtrl[] slotCtrls;
+    [SerializeField] private ReceiptCtrl receipt;
 
     private void Awake()
     {
@@ -41,6 +42,10 @@ public class InventoryCtrl : MonoBehaviour
         inGameEventManager.OnGetItemFromObjectEvent.AddListener(OnGetItemFromObject);
         inGameEventManager.OnUseInventoryItemEvent.AddListener(OnSpendItem);
         inGameEventManager.OnPurchaseInventoryCountChangeEvent.AddListener(UpdateSlotLockedState);
+        if (receipt != null)
+        {
+            receipt.gameObject.SetActive(false);
+        }
         gameObject.SetActive(false);
         
         InitalizeInventory();

@@ -121,13 +121,13 @@ public class ShortCutManager : MonoBehaviour
         if (!isShopOpened) return;
         if (inGameEventManager)
         {
-            inGameEventManager.CloseShopEvent.Invoke();
+            inGameEventManager.SellAllMineralsEvent.Invoke();
         }
         else
         {
             if (InGameEventManager.Instance)
             {
-                InGameEventManager.Instance.CloseShopEvent.Invoke();
+                InGameEventManager.Instance.SellAllMineralsEvent.Invoke();
             }
         }
     }

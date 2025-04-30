@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,6 +19,7 @@ public class InGameEventManager : MonoBehaviour
     [HideInInspector] public UnityEvent<Product> OnPurchaeProductEvent = new();
     [HideInInspector] public UnityEvent<Item, int, GameObject> OnGetItemFromObjectEvent = new();
     [HideInInspector] public UnityEvent<Item, int> OnUseInventoryItemEvent = new();
+    [HideInInspector] public UnityEvent<List<SellingItem>> OnInventoryItemSoldEvent = new();
 
     private void Awake()
     {
