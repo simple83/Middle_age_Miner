@@ -408,7 +408,7 @@ MonoBehaviour:
     purchaseLimitPerStage: 0
     unlockedStage: 0
   - name: First Aid Kit2
-    id: 0
+    id: 1
     desc: Restore 50 HP
     cost: 0
     order: 1
@@ -458,7 +458,7 @@ MonoBehaviour:
     purchaseLimitPerStage: 0
     unlockedStage: 0
   - name: TNT
-    id: 5
+    id: 6
     desc: Destroy Below Tile
     cost: 0
     order: 6
@@ -1050,10 +1050,28 @@ MonoBehaviour:
   OpenInventoryEvent:
     m_PersistentCalls:
       m_Calls: []
+  CloseInventoryEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OpenShopEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  CloseShopEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  SellAllMineralsEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPurchaeProductEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnGetItemFromObjectEvent:
     m_PersistentCalls:
       m_Calls: []
   OnUseInventoryItemEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInventoryItemSoldEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1871358142

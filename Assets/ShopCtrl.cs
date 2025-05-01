@@ -20,6 +20,7 @@ public class ShopCtrl : MonoBehaviour
         {
             throw new Exception("ingameevnetmanager is missing");
         }
+        inGameEventManager.OpenShopEvent.AddListener(ShowShop);
         shopUI.SetActive(false);
     }
 
@@ -37,6 +38,7 @@ public class ShopCtrl : MonoBehaviour
         if (inGameEventManager != null)
         {
             inGameEventManager.OnPurchaeProductEvent.AddListener(OnPurchaseProduct);
+            inGameEventManager.OpenShopEvent.Invoke();
         }
     }
 
@@ -45,6 +47,7 @@ public class ShopCtrl : MonoBehaviour
         if (inGameEventManager != null)
         {
             inGameEventManager.OnPurchaeProductEvent.RemoveListener(OnPurchaseProduct);
+            inGameEventManager.CloseShopEvent.Invoke();
         }
     }
 
@@ -72,5 +75,10 @@ public class ShopCtrl : MonoBehaviour
         productCtrls.TryGetValue(productId, out ProductCtrl ctrl);
         if (ctrl == null) return;
         ctrl.SetPurchasedCount(count);
+    }
+
+    public void ShowShop()
+    {
+        shopUI.SetActive(true);
     }
 }

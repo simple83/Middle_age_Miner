@@ -6,4 +6,9 @@ public class TestButtonCtrl : MonoBehaviour
     {
         User.Instance.AddScore(100);
     }
+
+    public void OpenShop()
+    {
+        InGameEventManager.Instance.OpenShopEvent.Invoke();
+    }
 }

@@ -42,6 +42,7 @@ public class InventoryCtrl : MonoBehaviour
         inGameEventManager.OnGetItemFromObjectEvent.AddListener(OnGetItemFromObject);
         inGameEventManager.OnUseInventoryItemEvent.AddListener(OnSpendItem);
         inGameEventManager.OnPurchaseInventoryCountChangeEvent.AddListener(UpdateSlotLockedState);
+        inGameEventManager.SellAllMineralsEvent.AddListener(SellAllMinerals);
         if (receipt != null)
         {
             receipt.gameObject.SetActive(false);
@@ -60,6 +61,7 @@ public class InventoryCtrl : MonoBehaviour
             inGameEventManager.OnGetItemFromObjectEvent.RemoveListener(OnGetItemFromObject);
             inGameEventManager.OnUseInventoryItemEvent.RemoveListener(OnSpendItem);
             inGameEventManager.OnPurchaseInventoryCountChangeEvent.RemoveListener(UpdateSlotLockedState);
+            inGameEventManager.SellAllMineralsEvent.RemoveListener(SellAllMinerals);
         }
     }
 
@@ -250,6 +252,40 @@ public class InventoryCtrl : MonoBehaviour
         }
     }
 
+    private void SellAllMinerals()
+    {
+        List<Item> sellableItems = new();
+        List<SellingItem> sellingItemList = new();
+        var sellingItemAmountMap = new Dictionary<int, int>();
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.ItemConfig.sellable && slot.Count > 0)
+            {
+                sellingItemAmountMap.TryGetValue(slot.ItemConfig.id, out int amount);
+                if (amount == 0)
+                {
+                    sellableItems.Add(slot.ItemConfig);
+                }
+                amount += slot.Count;
+                sellingItemAmountMap[slot.ItemConfig.id] = amount;
+            }
+        }
+        foreach (var key in sellingItemAmountMap.Keys)
+        {
+            for (int i =0; i < sellableItems.Count; i++)
+            {
+                if (sellableItems[i].id == key)
+                {
+                    sellingItemList.Add(new SellingItem { itemConfig = sellableItems[i], amount = sellingItemAmountMap[key] });
+                    break;
+                }
+            }
+        }
+        if (sellingItemList.Count > 0)
+        {
+            receipt.ShowReceipt(sellingItemList);
+        }
+    }
 }
 
 public struct InventorySlot
