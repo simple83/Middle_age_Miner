@@ -61,7 +61,11 @@ public class ReceiptCtrl : MonoBehaviour
     {
         if (confirmButton != null)
         {
-            confirmButton.onClick.AddListener(() => inGameEventManager.OnInventoryItemSoldEvent.Invoke(sellingItemList));
+            confirmButton.onClick.AddListener(() => 
+            { 
+                inGameEventManager.OnInventoryItemSoldEvent.Invoke(sellingItemList);
+                gameObject.SetActive(false);
+            });
         }
         if (cancelButton != null)
         {

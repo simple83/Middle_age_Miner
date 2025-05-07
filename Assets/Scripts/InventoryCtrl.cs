@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryCtrl : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class InventoryCtrl : MonoBehaviour
     private List<InventorySlot> inventorySlots = new();
     [SerializeField] private InventorySlotCtrl[] slotCtrls;
     [SerializeField] private ReceiptCtrl receipt;
+    [SerializeField] private TMP_Text moneyText;
 
     private void Awake()
     {
@@ -43,6 +45,8 @@ public class InventoryCtrl : MonoBehaviour
         inGameEventManager.OnUseInventoryItemEvent.AddListener(OnSpendItem);
         inGameEventManager.OnPurchaseInventoryCountChangeEvent.AddListener(UpdateSlotLockedState);
         inGameEventManager.SellAllMineralsEvent.AddListener(SellAllMinerals);
+        inGameEventManager.OnInventoryItemSoldEvent.AddListener(OnItemSold);
+        inGameEventManager.OnMoneyChangeEvent.AddListener(OnMoneyChange);
         if (receipt != null)
         {
             receipt.gameObject.SetActive(false);
@@ -62,6 +66,8 @@ public class InventoryCtrl : MonoBehaviour
             inGameEventManager.OnUseInventoryItemEvent.RemoveListener(OnSpendItem);
             inGameEventManager.OnPurchaseInventoryCountChangeEvent.RemoveListener(UpdateSlotLockedState);
             inGameEventManager.SellAllMineralsEvent.RemoveListener(SellAllMinerals);
+            inGameEventManager.OnInventoryItemSoldEvent.RemoveListener(OnItemSold);
+            inGameEventManager.OnMoneyChangeEvent.AddListener(OnMoneyChange);
         }
     }
 
@@ -79,6 +85,7 @@ public class InventoryCtrl : MonoBehaviour
             inventorySlots.Add(new InventorySlot());
         }
         UpdateInventorySlots();
+        OnMoneyChange(user.Money);
     }
 
     private void UpdateInventorySlots()
@@ -284,6 +291,27 @@ public class InventoryCtrl : MonoBehaviour
         if (sellingItemList.Count > 0)
         {
             receipt.ShowReceipt(sellingItemList);
+        }
+    }
+
+    private void OnItemSold(List<SellingItem> items)
+    {
+        int incomeAmount = 0;
+        foreach (var item in items)
+        {
+            if (TrySpendItem(item.itemConfig, item.amount))
+            {
+                incomeAmount += (item.itemConfig.price * item.amount);
+            }
+        }
+        user.EarnMoney(incomeAmount);
+    }
+
+    private void OnMoneyChange(int amount)
+    {
+        if (moneyText != null)
+        {
+            moneyText.text = amount.ToString();
         }
     }
 }

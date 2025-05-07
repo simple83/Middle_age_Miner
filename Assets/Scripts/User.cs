@@ -59,7 +59,7 @@ public class User : MonoBehaviour
     public void EarnMoney(int amount)
     {
         Money += amount;
-        inGameEventManager.OnScoreChangeEvent.Invoke(Money);
+        inGameEventManager.OnMoneyChangeEvent.Invoke(Money);
     }
 
     public bool SpendMoney(int amount)
@@ -69,7 +69,7 @@ public class User : MonoBehaviour
             return false;
         }
         Money -= amount;
-        inGameEventManager.OnScoreChangeEvent.Invoke(Money);
+        inGameEventManager.OnMoneyChangeEvent.Invoke(Money);
         return true;
     }
 

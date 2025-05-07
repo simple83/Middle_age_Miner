@@ -82,8 +82,10 @@ public class ProductCtrl : MonoBehaviour
 
     public void SetPurchasedCount(int count)
     {
-        if (!productConfig.HasValue) return;
-        if (productConfig.Value.purchaseLimitPerStage <= 0) return;
-        soldOut.SetActive(productConfig.Value.purchaseLimitPerStage <= count);
+        if (!productConfig.HasValue)
+        {
+            return;
+        }
+        soldOut.SetActive(productConfig.Value.purchaseLimitPerStage != 0 && productConfig.Value.purchaseLimitPerStage <= count);
     }
 }
