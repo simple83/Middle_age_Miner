@@ -77,30 +77,4 @@ public class PlayerMove : MonoBehaviour
             rb.linearVelocityY = maxFallSpeed;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        CheckWallCollision(collision, true);
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        CheckWallCollision(collision, false);
-    }
-
-    void CheckWallCollision(Collision2D collision, bool isEntering)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            foreach (ContactPoint2D contact in collision.contacts)
-            {
-                // 벽이 플레이어의 오른쪽에 있을 경우
-                if (contact.normal.x > 0.5f)
-                    isTouchingLeftWall = isEntering;
-                // 벽이 플레이어의 왼쪽에 있을 경우
-                else if (contact.normal.x < -0.5f)
-                    isTouchingRightWall = isEntering;
-            }
-        }
-    }
 }
