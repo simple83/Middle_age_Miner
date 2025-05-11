@@ -3,34 +3,65 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     public float linearMoveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Vector3 originScale;
 
+    private bool isLandingOnPlatform => rb.linearVelocityY == 0;
     private bool isTouchingLeftWall = false;
     private bool isTouchingRightWall = false;
 
-    public float flyForce = 30f;        // À§·Î °¡ÇÏ´Â Èû
-    public float maxFlySpeed = 10f;     // ÃÖ´ë ºñÇà ¼Óµµ
-    public float maxFallSpeed = 30f;    // ÃÖ´ë ³«ÇÏ ¼Óµµ
+    public float flyForce = 30f;        // ìœ„ë¡œ ê°€í•˜ëŠ” í˜
+    public float maxFlySpeed = 10f;     // ìµœëŒ€ ë¹„í–‰ ì†ë„
+    public float maxFallSpeed = 30f;    // ìµœëŒ€ ë‚™í•˜ ì†ë„
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        originScale = transform.localScale;
     }
 
-    void Update()
+    private int horizontalDirection = 1;
+
+    private void SetXDirection(float moveX)
     {
-        
+        if (moveX == 0) return;
+        var direction = 1;
+        if (moveX < 0)
+        {
+            direction = -1;
+        }
+        if (horizontalDirection == direction) return;
+        horizontalDirection = direction;
+        var newScale = transform.localScale;
+        newScale.x = horizontalDirection;
+        transform.localScale = newScale;
+    }
+
+    private void Update()
+    {
+        UpdatePlayerAnimation();
+    }
+
+    void UpdatePlayerAnimation()
+    {
+        animator.SetBool("isOnPlatform", isLandingOnPlatform);
+        animator.SetBool("isWalk", isLandingOnPlatform && rb.linearVelocityX != 0);
+        animator.SetBool("isFlying", Input.GetKey(KeyCode.UpArrow));
     }
 
     void FixedUpdate()
     {
-        // ¼öÆò¹æÇâ ¿òÁ÷ÀÓ. µî¼Óµµ ¿îµ¿
+        // ìˆ˜í‰ë°©í–¥ ì›€ì§ì„. ë“±ì†ë„ ìš´ë™
         float moveX = Input.GetAxisRaw("Horizontal");
         rb.linearVelocityX = moveX * linearMoveSpeed;
+        SetXDirection(moveX);
 
-        // ¼öÁ÷¹æÇâ ¿òÁ÷ÀÓ. °¡¼Óµµ ¿îµ¿
+        // ìˆ˜ì§ë°©í–¥ ì›€ì§ì„. ê°€ì†ë„ ìš´ë™
         if (Input.GetKey(KeyCode.UpArrow))
         {
             if (rb.linearVelocityY < maxFlySpeed)
@@ -40,7 +71,7 @@ public class PlayerMove : MonoBehaviour
 
         }
 
-        // ÃÖ´ë ³«ÇÏ¼Óµµ
+        // ìµœëŒ€ ë‚™í•˜ì†ë„
         if( rb.linearVelocityY > maxFallSpeed)
         {
             rb.linearVelocityY = maxFallSpeed;
@@ -63,10 +94,10 @@ public class PlayerMove : MonoBehaviour
         {
             foreach (ContactPoint2D contact in collision.contacts)
             {
-                // º®ÀÌ ÇÃ·¹ÀÌ¾îÀÇ ¿À¸¥ÂÊ¿¡ ÀÖÀ» °æ¿ì
+                // ë²½ì´ í”Œë ˆì´ì–´ì˜ ì˜¤ë¥¸ìª½ì— ìˆì„ ê²½ìš°
                 if (contact.normal.x > 0.5f)
                     isTouchingLeftWall = isEntering;
-                // º®ÀÌ ÇÃ·¹ÀÌ¾îÀÇ ¿ŞÂÊ¿¡ ÀÖÀ» °æ¿ì
+                // ë²½ì´ í”Œë ˆì´ì–´ì˜ ì™¼ìª½ì— ìˆì„ ê²½ìš°
                 else if (contact.normal.x < -0.5f)
                     isTouchingRightWall = isEntering;
             }
