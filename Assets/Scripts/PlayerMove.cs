@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
     void UpdatePlayerAnimation()
     {
         animator.SetBool("isOnPlatform", isLandingOnPlatform);
-        animator.SetBool("isWalk", isLandingOnPlatform && rb.linearVelocityX != 0);
+        animator.SetBool("isWalk", rb.linearVelocityX != 0);
         animator.SetBool("isFlying", Input.GetKey(KeyCode.UpArrow));
     }
 
