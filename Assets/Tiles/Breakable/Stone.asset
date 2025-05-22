@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95787a07a6e70ff40bd6d7426a1a947a, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1022420403, guid: 8ec14200a86ee474bb48fb0bc27c8297, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,8 +33,8 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 2
   maxDurability: 5
-  intactSprite: {fileID: 0}
-  crackedSprite: {fileID: 0}
-  brokenSprite: {fileID: 0}
+  intactSprite: {fileID: -1022420403, guid: 8ec14200a86ee474bb48fb0bc27c8297, type: 3}
+  crackedSprite: {fileID: -1645248973, guid: 8ec14200a86ee474bb48fb0bc27c8297, type: 3}
+  brokenSprite: {fileID: 879695647, guid: 8ec14200a86ee474bb48fb0bc27c8297, type: 3}
