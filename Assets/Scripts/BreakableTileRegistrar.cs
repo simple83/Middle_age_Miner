@@ -4,9 +4,13 @@ using UnityEngine.Tilemaps;
 [RequireComponent(typeof(Tilemap))]
 public class BreakableTileRegistrar : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         var tilemap = GetComponent<Tilemap>();
-        BreakableTileManager.Instance?.RegisterTilemap(tilemap);
+        var manager = BreakableTileManager.Instance;
+        if (manager != null)
+        {
+            manager.RegisterTilemap(tilemap);
+        }
     }
 }
